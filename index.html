@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMERALD Datathon: Esplorare il rapporto tra AI e Open Data</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Stile personalizzato per applicare il font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Stili per la scrollbar del modal */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-content::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .modal-content::-webkit-scrollbar-thumb {
+            background-color: #38bdf8;
+            border-radius: 10px;
+            border: 2px solid #1e293b;
+        }
+        /* Stili per l'accordion */
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white min-h-screen">
+
+    <!-- Contenitore Principale -->
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+
+        <!-- Header -->
+        <header class="text-center mb-16">
+            <h1 class="font-extrabold mb-6">
+                <span class="text-5xl md:text-7xl text-white block">SMERALD Datathon</span>
+                <span class="text-2xl md:text-4xl font-light text-sky-300 tracking-wide block mt-2">Esplorare il rapporto tra AI e Open Data</span>
+            </h1>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8 text-slate-300 mt-8">
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span class="font-medium text-lg">13 e 14 giugno 2025</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                       <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span class="font-medium text-lg">ITD-CNR di Palermo</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sezione Riepilogo e Video Completo -->
+        <section class="mb-16 bg-slate-800/60 backdrop-blur-sm border border-blue-800/50 rounded-xl shadow-lg overflow-hidden">
+            <div class="grid md:grid-cols-2 items-center">
+                <div class="p-8">
+                    <h2 class="text-3xl font-bold text-sky-300 mb-4">L'Evento in Sintesi: Rivedi Tutto</h2>
+                    <p class="text-slate-300 max-w-xl mb-6">
+                        L'evento di Palermo ha rappresentato un'importante occasione di confronto sul legame tra open data e AI. Dalle policy nazionali di AgID alle applicazioni pratiche degli LLM, fino al Datathon collaborativo, rivivi due giorni intensi che hanno trasformato le idee in progetti concreti.
+                    </p>
+                </div>
+                <div class="relative p-8 flex items-center justify-center h-full min-h-[250px] bg-cover bg-center" style="background-image: url('https://i0.wp.com/opendatasicilia.it/wp-content/uploads/2025/05/datathon-banner-2.jpg?resize=1110%2C500&ssl=1');">
+                    <!-- Overlay per contrasto -->
+                    <div class="absolute inset-0 bg-slate-900/70"></div>
+                     <a href="https://www.youtube.com/watch?v=I8p-bEY_ago" target="_blank" rel="noopener noreferrer" class="relative z-10 group flex items-center justify-center w-32 h-32 bg-sky-600 rounded-full shadow-lg shadow-sky-500/30 hover:bg-sky-500 transition-all duration-300 transform hover:scale-110">
+                        <div class="absolute w-full h-full bg-sky-500 rounded-full animate-ping opacity-30 group-hover:opacity-50"></div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white transform transition-transform duration-300 group-hover:scale-110" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8.002v3.996a1 1 0 001.555.832l3.196-1.998a1 1 0 000-1.664L9.555 7.168z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Interventi -->
+        <main>
+            <!-- Giorno 1 -->
+            <section>
+                <h2 class="text-3xl font-bold text-sky-300 border-b-2 border-sky-500/30 pb-3 mb-8">Interventi di Venerdì 13 giugno</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card Intervento -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Policy sui dati: dagli open data al Data Governance Act</h3>
+                            <p class="text-slate-400 mb-2">Antonio Rotundo (AgID)</p>
+                            <p class="text-slate-300 text-sm mb-6">Un'analisi delle nuove policy sui dati, con un focus sul Data Governance Act e le sue implicazioni per la PA e le imprese.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: Policy sui dati" data-content="Questo è un riepilogo dettagliato dell'intervento di Antonio Rotundo. Vengono esplorate le sfide e le opportunità del Data Governance Act, analizzando come AgID stia guidando l'Italia verso un ecosistema di dati più trasparente e interoperabile. Si discutono casi pratici e le linee guida per l'adozione delle nuove normative.">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: Policy sui dati" data-content="[Inizio trascrizione] Antonio Rotundo: Buongiorno a tutti. Oggi parleremo del Data Governance Act, un pilastro fondamentale della strategia europea per i dati... [Testo completo della trascrizione]">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card Intervento 2 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Dati geografici e regolazione tecnica AgID</h3>
+                            <p class="text-slate-400 mb-2">Leonardo Donnaloia (AgID)</p>
+                            <p class="text-slate-300 text-sm mb-6">Focus sul ruolo di AgID nella standardizzazione dei dati geografici e presentazione delle specifiche tecniche per i dati geospaziali.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: Dati geografici" data-content="Contenuto del riepilogo per i dati geografici...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: Dati geografici" data-content="Contenuto della trascrizione per i dati geografici...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Intervento 3 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">L’occasione dei dati (aperti) nell’era dell’AI</h3>
+                            <p class="text-slate-400 mb-2">Giorgia Lodi (ISTC-CNR)</p>
+                            <p class="text-slate-300 text-sm mb-6">Come sfruttare il potenziale dei dati aperti in un mondo dominato dall'intelligenza artificiale per creare valore e innovazione.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: Dati aperti e AI" data-content="Contenuto del riepilogo per dati aperti e AI...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: Dati aperti e AI" data-content="Contenuto della trascrizione per dati aperti e AI...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Intervento 4 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Scarsità d'acqua e abbondanza di dati</h3>
+                            <p class="text-slate-400 mb-2">Dennis Angemi (Open Data Sicilia)</p>
+                            <p class="text-slate-300 text-sm mb-6">Un caso d'uso su come i LLM possono estrarre dati aperti da documenti non strutturati relativi all'emergenza idrica in Sicilia.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: Scarsità d'acqua" data-content="Contenuto del riepilogo per scarsità d'acqua...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: Scarsità d'acqua" data-content="Contenuto della trascrizione per scarsità d'acqua...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Intervento 5 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Tutto è testo: la shell per usare gli LLM</h3>
+                            <p class="text-slate-400 mb-2">A. Borruso & A. Nelson Mauro</p>
+                            <p class="text-slate-300 text-sm mb-6">Una riflessione pratica su come lavorare con i Large Language Models direttamente dalla linea di comando, l'ambiente ideale per manipolare il testo.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: LLM e Shell" data-content="Contenuto del riepilogo per LLM e Shell...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: LLM e Shell" data-content="Contenuto della trascrizione per LLM e Shell...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Giorno 2 -->
+            <section class="mt-16">
+                 <h2 class="text-3xl font-bold text-sky-300 border-b-2 border-sky-500/30 pb-3 mb-8">Interventi di Sabato 14 giugno</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <!-- Card Intervento 6 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Introduzione al Datathon</h3>
+                            <p class="text-slate-400 mb-2">D. Taibi (CNR) & A. Longo (UniSalento)</p>
+                            <p class="text-slate-300 text-sm mb-6">Presentazione delle sfide e degli obiettivi del Datathon, con un focus sui temi proposti e le modalità di partecipazione.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: Intro Datathon" data-content="Contenuto del riepilogo per l'introduzione al Datathon...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: Intro Datathon" data-content="Contenuto della trascrizione per l'introduzione al Datathon...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Intervento 7 -->
+                     <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">LidoLink: AI per migliorare il turismo</h3>
+                            <p class="text-slate-400 mb-2">Showbik Showmma</p>
+                            <p class="text-slate-300 text-sm mb-6">Presentazione di un progetto che sfrutta l’intelligenza artificiale per migliorare in tempo reale l’esperienza turistica.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                           <div class="flex flex-wrap items-center justify-between gap-3">
+                                <div class="flex items-center gap-3">
+                                    <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" /></svg>
+                                        <span>Video</span>
+                                    </a>
+                                     <a href="#" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                                        <span>Slide</span>
+                                    </a>
+                                </div>
+                                <button class="expand-trigger flex items-center justify-center gap-1.5 text-sm text-sky-400 hover:text-sky-300 font-medium transition-colors py-2 flex-shrink-0">
+                                    <span>Approfondisci</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform chevron" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="expandable-content mt-4 space-y-2">
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Riepilogo: LidoLink" data-content="Contenuto del riepilogo per LidoLink...">Leggi il riepilogo</button>
+                                <button class="modal-trigger w-full text-left px-3 py-2 text-sm bg-slate-700/50 hover:bg-slate-700 rounded-md text-slate-300 hover:text-white transition-colors" data-title="Trascrizione: LidoLink" data-content="Contenuto della trascrizione per LidoLink...">Leggi la trascrizione</button>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            
+            <!-- Risultati Datathon -->
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold text-sky-300 border-b-2 border-sky-500/30 pb-3 mb-8">Risultati del Datathon</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Card Track 1 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Track 1: Qualità dei Dati</h3>
+                            <p class="text-slate-300 text-sm mb-6">Il gruppo di lavoro si è concentrato sullo sviluppo di metodologie e script per analizzare e migliorare la qualità dei dati presenti nei portali open data, proponendo un framework di validazione automatica.</p>
+                        </div>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                            <div class="flex flex-wrap items-center justify-start gap-3">
+                                <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                                      <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
+                                    </svg>
+                                    <span>Ascolta</span>
+                                </a>
+                                <button class="modal-trigger text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2" data-title="Riepilogo: Track Qualità dei Dati" data-content="Il team ha sviluppato un set di script Python per la validazione dei dati tabulari, concentrandosi su coerenza, completezza e formattazione. È stato proposto un flusso di lavoro per integrare questi controlli nei processi di pubblicazione dei portali open data, migliorando l'affidabilità delle informazioni per gli utenti finali.">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span>Riepilogo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Track 2 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-white mb-2">Track 2: Arricchimento Dati Acqua con WHOW</h3>
+                            <p class="text-slate-300 text-sm mb-6">Questo gruppo ha esplorato come arricchire i dataset esistenti sulle risorse idriche utilizzando l'ontologia Water Harmonized-Ontology (WHOW), per creare un grafo di conoscenza interrogabile e semanticamente ricco.</p>
+                        </div>
+                         <div class="mt-auto pt-4 border-t border-slate-700/60">
+                            <div class="flex flex-wrap items-center justify-start gap-3">
+                                <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                                      <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
+                                    </svg>
+                                    <span>Ascolta</span>
+                                </a>
+                                <button class="modal-trigger text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2" data-title="Riepilogo: Track Arricchimento Dati Acqua" data-content="Il lavoro si è basato sulla mappatura dei dati idrici siciliani con i concetti dell'ontologia WHOW. È stato prodotto un prototipo di knowledge graph che permette di effettuare query complesse, come l'individuazione di corpi idrici a rischio o la correlazione tra inquinanti e fonti.">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span>Riepilogo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-20 pt-10 border-t border-slate-700">
+            <p class="text-slate-400">
+                Evento organizzato nell'ambito del progetto europeo <strong class="font-semibold text-slate-300">SMERALD</strong>.
+            </p>
+            <p class="text-sm text-slate-500 mt-2">
+                2023-1-IT01-KA220-VET-000151990
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="info-modal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-slate-800 border border-blue-800 rounded-xl shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col">
+            <div class="flex justify-between items-center p-4 border-b border-slate-700">
+                <h3 id="modal-title" class="text-xl font-semibold text-sky-300"></h3>
+                <button id="modal-close" class="text-slate-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content" class="p-6 overflow-y-auto modal-content text-slate-300">
+                <!-- Contenuto dinamico qui -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('info-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const modalClose = document.getElementById('modal-close');
+            
+            // Gestione Modal
+            document.querySelectorAll('.modal-trigger').forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const title = trigger.getAttribute('data-title');
+                    const content = trigger.getAttribute('data-content');
+                    
+                    modalTitle.textContent = title;
+                    modalContent.innerHTML = content.replace(/\n/g, '<br>');
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            const closeModal = () => modal.classList.add('hidden');
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) closeModal();
+            });
+
+            // Gestione Accordion
+            document.querySelectorAll('.expand-trigger').forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.parentElement.nextElementSibling;
+                    const chevron = button.querySelector('.chevron');
+                    
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        // Aggiungiamo un piccolo buffer per sicurezza
+                        content.style.maxHeight = (content.scrollHeight + 10) + "px";
+                        chevron.classList.add('rotate-180');
+                    } 
+                });
+            });
+
+            // Chiudi modal con 'Esc'
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                     closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

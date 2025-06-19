@@ -36,23 +36,35 @@
             transition: max-height 0.5s ease-in-out;
         }
         
-        /* Stili per il player audio personalizzato */
-        .custom-audio-player {
+        /* Stili per il player audio personalizzato */        .custom-audio-player {
             width: 100%;
+            height: 60px;
             background: linear-gradient(135deg, #475569 0%, #334155 100%);
             border-radius: 8px;
-            padding: 12px;
+            padding: 8px 12px;
             border: 1px solid rgba(56, 189, 248, 0.3);
+            overflow: visible;
         }
         
         .custom-audio-player::-webkit-media-controls-panel {
             background-color: transparent;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
-        
-        .custom-audio-player::-webkit-media-controls-play-button,
+          .custom-audio-player::-webkit-media-controls-play-button,
         .custom-audio-player::-webkit-media-controls-pause-button {
             background-color: #0ea5e9;
             border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            min-height: 36px;
+            margin: 0 12px 0 4px;
+            flex-shrink: 0;
+            border: none;
+            outline: none;
+            box-sizing: border-box;
         }
         
         .custom-audio-player::-webkit-media-controls-timeline {
@@ -60,12 +72,19 @@
             border-radius: 25px;
             margin-left: 10px;
             margin-right: 10px;
-        }
-        
-        .custom-audio-player::-webkit-media-controls-current-time-display,
+        }        .custom-audio-player::-webkit-media-controls-current-time-display,
         .custom-audio-player::-webkit-media-controls-time-remaining-display {
-            color: #e2e8f0;
-            font-size: 12px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+            background: #1e293b;
+            padding: 4px 8px;
+            border-radius: 8px;
+            min-width: 45px;
+            text-align: center;
+            border: 2px solid #38bdf8;            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>

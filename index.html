@@ -787,87 +787,98 @@ Viva il riuso, ma soprattutto, viva il Borruso!">Leggi la trascrizione</button>
             <!-- Risultati Datathon -->
             <section class="mt-16">
                 <h2 class="text-3xl font-bold text-sky-300 border-b-2 border-sky-500/30 pb-3 mb-8">Risultati del Datathon</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">                    
-                      <!-- Card Track 1 -->
-                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
-                        <div class="flex-grow">
-                            <!-- Badge Track 1 -->
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zm2 2V5h1v1h-1z" clip-rule="evenodd" />
-                                    </svg>
-                                    TRACK 1
-                                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">                        <!-- Card Track 1 -->
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <!-- Header con Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zm2 2V5h1v1h-1z" clip-rule="evenodd" />
+                                </svg>
+                                TRACK 1
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Dati sulle acque: le sfide per la salute e l'ambiente</h3>
-                            <p class="text-slate-300 text-sm mb-6">Per una gestione più efficace e trasparente dei dati sulla qualità dell'acqua. Esplorazione delle possibilità di arricchimento dei dati idrici attraverso l'integrazione con WHOW.</p>
-                        </div>                        <div class="mt-auto pt-4 border-t border-slate-700/60">
-                            <div class="flex flex-col gap-4">
-                                <!-- Player Audio -->
-                                <div class="w-full">
-                                    <div class="flex items-center gap-2 mb-2">
+                        </div>
+                        
+                        <!-- Contenuto principale -->
+                        <div class="flex-grow mb-6">
+                            <h3 class="text-xl font-semibold text-white mb-3">Dati sulle acque: le sfide per la salute e l'ambiente</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">Per una gestione più efficace e trasparente dei dati sulla qualità dell'acqua. Esplorazione delle possibilità di arricchimento dei dati idrici attraverso l'integrazione con WHOW.</p>
+                        </div>
+                        
+                        <!-- Sezione Azioni -->
+                        <div class="border-t border-slate-700/60 pt-5">
+                            <!-- Audio Player -->
+                            <div class="mb-4">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-sky-400" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
                                             <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
-                                        </svg>                                        <span class="text-sm text-slate-300 font-medium">Ascolta il tavolo</span>
-                                    </div>
-                                    <audio controls class="custom-audio-player">
-                                        <source src="resources/audio/datathon-track-1-water.m4a" type="audio/mp4">
-                                        Il tuo browser non supporta l'elemento audio.
-                                    </audio>
-                                </div>
-                                
-                                <!-- Bottone Riepilogo -->
-                                <div class="flex items-center justify-center">
-                                    <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-1-water.md#dati-sulle-acque-le-sfide-per-la-salute-e-lambiente" target="_blank" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
-                                        <span>Leggi Riepilogo</span>
-                                    </a>
+                                        <span class="text-sm text-slate-300 font-medium">Ascolta il tavolo</span>
+                                    </div>
                                 </div>
+                                <audio controls class="custom-audio-player">
+                                    <source src="resources/audio/datathon-track-1-water.m4a" type="audio/mp4">
+                                    Il tuo browser non supporta l'elemento audio.
+                                </audio>
+                            </div>
+                            
+                            <!-- Bottone Riepilogo -->
+                            <div class="flex items-center justify-center">
+                                <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-1-water.md#dati-sulle-acque-le-sfide-per-la-salute-e-lambiente" target="_blank" class="w-full text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    <span>Leggi il riepilogo</span>
+                                </a>
                             </div>
                         </div>
                     </div>                    <!-- Card Track 2 -->
-                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
-                        <div class="flex-grow">
-                            <!-- Badge Track 2 -->
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z" clip-rule="evenodd" />
-                                    </svg>
-                                    TRACK 2
-                                </div>
+                    <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
+                        <!-- Header con Badge -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11z" clip-rule="evenodd" />
+                                </svg>
+                                TRACK 2
                             </div>
-                            <h3 class="text-xl font-semibold text-white mb-2">Qualità dei dati: le sfide e le potenzialità di strumenti intelligenti</h3>
-                            <p class="text-slate-300 text-sm mb-6">Risultati del gruppo di lavoro sulla qualità dei dati. Fondamentale un sistema di monitoraggio centrale della qualità del dato.</p>
                         </div>
-                        <div class="mt-auto pt-4 border-t border-slate-700/60">
-                            <div class="flex flex-col gap-4">
-                                <!-- Player Audio -->
-                                <div class="w-full">
-                                    <div class="flex items-center gap-2 mb-2">
+                        
+                        <!-- Contenuto principale -->
+                        <div class="flex-grow mb-6">
+                            <h3 class="text-xl font-semibold text-white mb-3">Qualità dei dati: le sfide e le potenzialità di strumenti intelligenti</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">Risultati del gruppo di lavoro sulla qualità dei dati. Fondamentale un sistema di monitoraggio centrale della qualità del dato.</p>
+                        </div>
+                        
+                        <!-- Sezione Azioni -->
+                        <div class="border-t border-slate-700/60 pt-5">
+                            <!-- Audio Player -->
+                            <div class="mb-4">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-sky-400" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
                                             <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
-                                        </svg>                                        <span class="text-sm text-slate-300 font-medium">Ascolta il tavolo</span>
-                                    </div>
-                                    <audio controls class="custom-audio-player">
-                                        <source src="resources/audio/datathon-track-2-quality.m4a" type="audio/mp4">
-                                        Il tuo browser non supporta l'elemento audio.
-                                    </audio>
-                                </div>
-                                  <!-- Bottone Riepilogo -->
-                                <div class="flex items-center justify-center">
-                                    <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-2-quality.md#qualit%C3%A0-dei-dati-le-sfide-da-affrontare-e-le-potenzialit%C3%A0-di-strumenti-intelligenti" target="_blank" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
-                                        <span>Leggi Riepilogo</span>
-                                    </a>
+                                        <span class="text-sm text-slate-300 font-medium">Ascolta il tavolo</span>
+                                    </div>
                                 </div>
+                                <audio controls class="custom-audio-player">
+                                    <source src="resources/audio/datathon-track-2-quality.m4a" type="audio/mp4">
+                                    Il tuo browser non supporta l'elemento audio.
+                                </audio>
+                            </div>
+                            
+                            <!-- Bottone Riepilogo -->
+                            <div class="flex items-center justify-center">
+                                <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-2-quality.md#qualit%C3%A0-dei-dati-le-sfide-da-affrontare-e-le-potenzialit%C3%A0-di-strumenti-intelligenti" target="_blank" class="w-full text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                    <span>Leggi il riepilogo</span>
+                                </a>
                             </div>
                         </div>
                     </div>

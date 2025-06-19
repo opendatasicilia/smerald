@@ -53,7 +53,3 @@ Un aspetto cruciale è il "coinvolgimento dei fornitori” che molto spesso gest
 * Valutare lo sviluppo di **strumenti automatici** per il miglioramento della qualità e la creazione di pipeline per i dati.
 
 * Strategie per il **coinvolgimento dei fornitori**: Sviluppare approcci per incentivare e ottenere la collaborazione dei produttori, affrontando le resistenze.
-
----
-
-In data 2025-06-19il presente documento è stato reso disponibile in formato markdown nel [repository GitHub opendatasicilia/smerald](https://github.com/opendatasicilia/smerald),

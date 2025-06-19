@@ -66,6 +66,3 @@ La distinzione tra dati di quantità (come il livello dell'acqua nelle dighe) e 
 ## Conclusione
 
 Il progetto WHOW ha gettato le basi per una gestione più efficace e trasparente dei dati sulla qualità dell'acqua attraverso l'uso di ontologie e Linked Data. Le sfide principali riguardano la tempestività della pubblicazione e la validazione dei dati. Tuttavia, esiste un solido quadro normativo (Decreto Trasparenza) e strumenti tecnici (DQV, PROV-O, workflow automatizzati) che possono facilitare la pubblicazione di dati di qualità, anche se non completamente validati, aumentando la fiducia dei cittadini e supportando decisioni informate. L'armonizzazione dei dati e l'adozione di standard condivisi (come schema.gov.it) sono passi fondamentali per il futuro.  
----
-
-In data 2025-06-19il presente documento è stato reso disponibile in formato markdown nel [repository GitHub opendatasicilia/smerald](https://github.com/opendatasicilia/smerald),

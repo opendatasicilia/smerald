@@ -29,12 +29,43 @@
             background-color: #38bdf8;
             border-radius: 10px;
             border: 2px solid #1e293b;
-        }
-        /* Stili per l'accordion */
+        }        /* Stili per l'accordion */
         .expandable-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
+        }
+        
+        /* Stili per il player audio personalizzato */
+        .custom-audio-player {
+            width: 100%;
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        
+        .custom-audio-player::-webkit-media-controls-panel {
+            background-color: transparent;
+        }
+        
+        .custom-audio-player::-webkit-media-controls-play-button,
+        .custom-audio-player::-webkit-media-controls-pause-button {
+            background-color: #0ea5e9;
+            border-radius: 50%;
+        }
+        
+        .custom-audio-player::-webkit-media-controls-timeline {
+            background-color: rgba(148, 163, 184, 0.3);
+            border-radius: 25px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        .custom-audio-player::-webkit-media-controls-current-time-display,
+        .custom-audio-player::-webkit-media-controls-time-remaining-display {
+            color: #e2e8f0;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -737,29 +768,40 @@ Viva il riuso, ma soprattutto, viva il Borruso!">Leggi la trascrizione</button>
             <!-- Risultati Datathon -->
             <section class="mt-16">
                 <h2 class="text-3xl font-bold text-sky-300 border-b-2 border-sky-500/30 pb-3 mb-8">Risultati del Datathon</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">                    
+                    
                     <!-- Card Track 1 -->
                     <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
                         <div class="flex-grow">
-                            <h3 class="text-xl font-semibold text-white mb-2">Track 1: Qualità dei Dati</h3>
-                            <p class="text-slate-300 text-sm mb-6">Lorem ipsum.</p>
+                            <h3 class="text-xl font-semibold text-white mb-2">Dati sulle acque: le sfide per la salute e l'ambiente (Track 1)</h3>
+                            <p class="text-slate-300 text-sm mb-6">Esplorazione delle possibilità di arricchimento dei dati idrici attraverso l'integrazione con WHOW.</p>
                         </div>
                         <div class="mt-auto pt-4 border-t border-slate-700/60">
-                            <div class="flex flex-wrap items-center justify-start gap-3">
-                                <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                      <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
-                                      <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
-                                    </svg>
-                                    <span>Ascolta</span>
-                                </a>
-                                <button class="modal-trigger text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2" data-title="Riepilogo: Track Qualità dei Dati" data-content="Lorem ipsum">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                      <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Riepilogo</span>
-                                </button>
+                            <div class="flex flex-col gap-4">
+                                <!-- Player Audio -->
+                                <div class="w-full">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-sky-400" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                                            <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
+                                        </svg>
+                                        <span class="text-sm text-slate-300 font-medium">Ascolta i risultati</span>
+                                    </div>
+                                    <audio controls class="custom-audio-player">
+                                        <source src="resources/audio/datathon-track-1-water.m4a" type="audio/mp4">
+                                        Il tuo browser non supporta l'elemento audio.
+                                    </audio>
+                                </div>
+                                
+                                <!-- Bottone Riepilogo -->
+                                <div class="flex items-center justify-start">
+                                    <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-1-water.md#dati-sulle-acque-le-sfide-per-la-salute-e-lambiente" target="_blank" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span>Leggi Riepilogo</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -767,27 +809,39 @@ Viva il riuso, ma soprattutto, viva il Borruso!">Leggi la trascrizione</button>
                     <!-- Card Track 2 -->
                     <div class="bg-slate-800/50 backdrop-blur-sm border border-blue-800/50 rounded-xl p-6 flex flex-col justify-between shadow-lg hover:shadow-sky-500/20 transition-all duration-300">
                         <div class="flex-grow">
-                            <h3 class="text-xl font-semibold text-white mb-2">Track 2: Arricchimento Dati Acqua con WHOW</h3>
-                            <p class="text-slate-300 text-sm mb-6">Questo gruppo ha esplorato lorem ipsum</p>
+                            <h3 class="text-xl font-semibold text-white mb-2">Qualità dei dati: le sfide e le potenzialità di strumenti intelligenti (Track 2)</h3>
+                            <p class="text-slate-300 text-sm mb-6">Risultati del gruppo di lavoro sulla qualità dei dati.</p>
                         </div>
-                         <div class="mt-auto pt-4 border-t border-slate-700/60">
-                            <div class="flex flex-wrap items-center justify-start gap-3">
-                                <a href="#" class="text-center bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                      <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
-                                      <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
-                                    </svg>
-                                    <span>Ascolta</span>
-                                </a>
-                                <button class="modal-trigger text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2" data-title="Riepilogo: Track Arricchimento Dati Acqua" data-content="Lorem ipsum">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                      <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
-                                    </svg>
-                                    <span>Riepilogo</span>
-                                </button>
+                        <div class="mt-auto pt-4 border-t border-slate-700/60">
+                            <div class="flex flex-col gap-4">
+                                <!-- Player Audio -->
+                                <div class="w-full">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-sky-400" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M7 4a3 3 0 016 0v6a3 3 0 11-6 0V4z" />
+                                            <path d="M5.5 8.5a.5.5 0 01.5.5v1a4 4 0 004 4h0a4 4 0 004-4v-1a.5.5 0 011 0v1a5 5 0 01-4.5 4.975V17h3a.5.5 0 010 1h-7a.5.5 0 010-1h3v-1.525A5 5 0 014.5 9.5v-1a.5.5 0 01.5-.5z" />
+                                        </svg>
+                                        <span class="text-sm text-slate-300 font-medium">Ascolta i risultati</span>
+                                    </div>
+                                    <audio controls class="custom-audio-player">
+                                        <source src="resources/audio/datathon-track-2-quality.m4a" type="audio/mp4">
+                                        Il tuo browser non supporta l'elemento audio.
+                                    </audio>
+                                </div>
+                                
+                                <!-- Bottone Riepilogo -->
+                                <div class="flex items-center justify-start">
+                                    <a href="https://github.com/opendatasicilia/smerald/blob/main/resources/summaries/datathon-track-2-quality.md#qualit%C3%A0-dei-dati-le-sfide-da-affrontare-e-le-potenzialit%C3%A0-di-strumenti-intelligenti" target="_blank" class="text-center bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm2 1a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1zm0 4a1 1 0 011-1h1a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span>Leggi Riepilogo</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </section>
         </main>
